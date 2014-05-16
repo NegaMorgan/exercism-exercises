@@ -1,11 +1,11 @@
 class Bob
   def hey(input)
     case
-    when input.is_whitespace?
+    when input.blank?
       'Fine. Be that way!'
-    when input.is_all_caps?
+    when input.all_caps?
       'Woah, chill out!'
-    when input.is_a_question?
+    when input.a_question?
       'Sure.'
     else
       'Whatever.'
@@ -13,13 +13,13 @@ class Bob
   end
 end
 class String
-  def is_whitespace?
-    !!self.match(/\A(\s*)\z/)
+  def blank?
+    self.strip.empty?
   end
-  def is_all_caps?
+  def all_caps?
     !!self.match(/\A([^[a-z]]+)\z/) && !!self.match(/[A-Z]+/)
   end
-  def is_a_question?
-    !!self.match(/.+\?\z/)
+  def a_question?
+    self.end_with? '?'
   end
 end

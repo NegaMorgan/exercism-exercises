@@ -1,18 +1,25 @@
 class Bob
   def hey(input)
-    whitespace =  !!input.match(/\A(\s*)\z/)
-    all_caps   =  !!input.match(/\A([^[a-z]]+)\z/) && !!input.match(/[A-Z]+/)
-    a_question =  !!input.match(/.+\?\z/)
-
     case
-    when whitespace
+    when input.is_whitespace?
       'Fine. Be that way!'
-    when all_caps
+    when input.is_all_caps?
       'Woah, chill out!'
-    when a_question
+    when input.is_a_question?
       'Sure.'
     else
       'Whatever.'
     end
+  end
+end
+class String
+  def is_whitespace?
+    !!self.match(/\A(\s*)\z/)
+  end
+  def is_all_caps?
+    !!self.match(/\A([^[a-z]]+)\z/) && !!self.match(/[A-Z]+/)
+  end
+  def is_a_question?
+    !!self.match(/.+\?\z/)
   end
 end

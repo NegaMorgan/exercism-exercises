@@ -1,5 +1,7 @@
 class Bob
-  def hey(input)
+  def hey(phrase)
+    input = Input.new << phrase
+    
     case
     when input.blank?
       'Fine. Be that way!'
@@ -12,7 +14,7 @@ class Bob
     end
   end
 end
-class String
+class Input < String
   def blank?
     self.strip.empty?
   end

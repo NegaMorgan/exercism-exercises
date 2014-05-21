@@ -1,6 +1,6 @@
 class Bob
   def hey(phrase)
-    input = Input.new << phrase
+    input = Input.new phrase
     
     case
     when input.blank?

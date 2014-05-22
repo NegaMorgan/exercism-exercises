@@ -9,7 +9,8 @@ class Grains
     @grains.values.reduce(:+)
   end
   def build_grains
-    @grains = {1 => 1}
-    (2..64).each{|n| @grains[n] = @grains[n-1] * 2 }
+    @grains = (2..64).each_with_object({1 => 1}) do |n, obj| 
+      obj[n] = obj[n-1] * 2
+    end
   end
 end

@@ -1,10 +1,11 @@
 class Grains
-  GRAINS = (1..64).each_with_object({}){|n,o| o[n] = 1 << (n - 1) }
-
+  def initialize(size=64)
+    @size = size
+  end
   def square(id)
-    GRAINS[id]
+    1 << (id - 1)
   end
   def total
-    GRAINS.values.reduce(:+)
+    square(@size+1) - 1
   end
 end

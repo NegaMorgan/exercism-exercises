@@ -3,14 +3,12 @@ class Grains
     build_grains
   end
   def square(id)
-    @grains[id]
+    @grains[id-1]
   end
   def total
-    @grains.values.reduce(:+)
+    @grains.reduce(:+)
   end
   def build_grains
-    @grains = (2..64).each_with_object({1 => 1}) do |n, obj| 
-      obj[n] = obj[n-1] * 2
-    end
+    @grains = (1..64).map {|n| 1 << (n - 1)}
   end
 end

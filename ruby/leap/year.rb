@@ -1,6 +1,6 @@
 class Year
   def self.leap?(year)
-    year.divisible_by?(4) and not year.divisible_by?(100) or year.divisible_by?(4, 100, 400)
+    year.divisible_by?(4) && !year.divisible_by?(100) || year.divisible_by?(4, 100, 400)
   end
 end
 
